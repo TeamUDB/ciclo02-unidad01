@@ -1,5 +1,5 @@
 
-package ciclo02.Colecciones;
+package ciclo02.Mapas;
 
 import java.util.HashMap;
 import java.util.Iterator;
