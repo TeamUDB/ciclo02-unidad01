@@ -9,7 +9,7 @@ package ciclo02;
  *the classes to be used along the program
 */
 import java.util.*;     
-public class Unidad01a 
+public class TareaForo 
 {
     public static void main(String[] args) 
     {
