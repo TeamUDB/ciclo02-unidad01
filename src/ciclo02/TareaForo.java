@@ -1,4 +1,3 @@
-package ciclo02;
 /**
  *
  * @author gdanm
@@ -8,13 +7,16 @@ package ciclo02;
  *First, and very important, do not forget import
  *the classes to be used along the program
 */
-import java.util.*;     
-public class TareaForo 
+import java.util.*;
+        
+public class TareaForo
 {
     public static void main(String[] args) 
     {
         //Declaring some variables
-        String name, carnet, src_carnet, reg_carnet;
+        String name = "";
+        String carnet = "";
+        String src_carnet, reg_carnet;
         int key = 0;
         
         //Calling the scanner
@@ -42,10 +44,32 @@ public class TareaForo
             {
                 case 1:
                 {
-                    System.out.print("Por favor ingrese nombre completo de estudiante: ");
-                    name = input.nextLine();
-                    System.out.print("Por favor ingrese el carnet del estudiante: ");
-                    carnet = input.nextLine();
+                    //Initiating validation, if no name, no pass
+                    while(name.isEmpty())
+                    {
+                        System.out.println("Por favor ingrese nombre completo de estudiante: ");
+                        name = input.nextLine();
+                    
+                        if (name.isEmpty())
+                        {
+                            System.out.println("Nombre de estudiante es requerido para continuar");
+                            System.out.println("\n");
+                        }
+                        
+                    }
+                    
+                    //Initiating validation, if no ID, no pass
+                    while(carnet.isEmpty())
+                    {
+                        System.out.println("Por favor ingrese el carnet del estudiante: ");
+                        carnet = input.nextLine();
+                        reg_carnet = stdatabase.get(carnet);
+                        if (carnet.isEmpty())
+                        {
+                            System.out.println("Carnet es requerido para continuar");
+                            System.out.println("\n");
+                        }
+                    }
                     
                     stdatabase.put(carnet, name);
                     System.out.println("Alumno registrado exitosamente");
@@ -58,11 +82,9 @@ public class TareaForo
                     src_carnet = input.nextLine();
                     reg_carnet = stdatabase.get(src_carnet);
                     
-                    System.out.println("key => " + reg_carnet);
-                    
                     if (stdatabase.containsValue(reg_carnet))
                     {
-                        System.out.println(src_carnet + "- " + reg_carnet);
+                        System.out.println(src_carnet + " - " + reg_carnet);
                     }
                     else
                     {
